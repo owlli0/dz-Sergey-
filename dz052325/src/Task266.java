@@ -8,11 +8,11 @@ public class Task266 {
         int x2 = scanner.nextInt();
         int y2 = scanner.nextInt();
 
-        if ((x1 > 0 && y1 > 0 && x2 > 0 && y2 > 0) || (x1 < 0 && y1 < 0 && x2 < 0 && y2 < 0)){
+        if ((x1 > 0 && y1 > 0 && x2 > 0 && y2 > 0) || (x1 < 0 && y1 < 0 && x2 < 0 && y2 < 0)) {
             System.out.println("YES");
-        } else if((x1<0 && y1 >0 && x2<0 && y2 >0 ) || (x1>0 && y1 <0 && x2>0 && y2 <0 )){
+        } else if ((x1 < 0 && y1 > 0 && x2 < 0 && y2 > 0) || (x1 > 0 && y1 < 0 && x2 > 0 && y2 < 0)) {
             System.out.println("YES");
-        }else {
+        } else {
             System.out.println("NO");
         }
     }
