@@ -21,7 +21,7 @@ public class TaskText2 {
         }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (j % 2 != 0){
+                if (i % 2 != 0){
                     sum += array[i][j];
                 }
             }
@@ -29,4 +29,4 @@ public class TaskText2 {
         System.out.println(sum);
     }
 }
-//решено
+//решено, с правками
