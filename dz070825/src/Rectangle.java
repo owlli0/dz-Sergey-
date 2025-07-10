@@ -7,11 +7,13 @@ public class Rectangle {
         this.b = b;
     }
 
-    public void printSquare() {
-        System.out.println("Площадь прямоугяльника со сторонами " + a + " и " + b + " равна " + (a * b));
+    public double printSquare() {
+        double res = a * b;
+        return res;
     }
 
-    public void printPerimeter() {
-        System.out.println("Периметр прямоугольника со сторонами " + a + " и " + b + " равен " + (a + b));
+    public double printPerimeter() {
+        double res = (a + b) * 2;
+        return res;
     }
 }
