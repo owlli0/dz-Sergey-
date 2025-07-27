@@ -13,7 +13,7 @@ public class App {
             mage.attack(robber);
             robber.attack(mage);
         }
-        System.out.println(mage.getHp() > 0? "Победил Гэндальф": "Победил Робин");
+        System.out.println(mage.getHp() > 0 ? "Победил Гэндальф" : "Победил Робин");
         mage.printInfo();
         robber.printInfo();
 
@@ -25,8 +25,10 @@ public class App {
             robber.attack(warrior);
             warrior.attack(robber);
         }
-        System.out.println(warrior.getHp() > 0? "Победил Боб": "Победил Робин");
+        System.out.println(warrior.getHp() > 0 ? "Победил Боб" : "Победил Робин");
         warrior.printInfo();
         robber.printInfo();
+
+
     }
 }
