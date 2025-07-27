@@ -13,40 +13,20 @@ public class Robber extends Unit {
         super.printInfo();
     }
 
-    public void getDmg(int dmg) {
+    @Override
+    public void getDamage(int dmg) {
         hp -= dmg;
     }
 
-    public void attack(Warrior warrior) {
+    @Override
+    public void attack(Unit unit) {
         double rate = Math.random() * 100 + 1;
         critRate = (int) rate;
         if (critRate >= 50) {
-            warrior.getDmg(15 * count);
+            unit.getDamage(15 * count);
             count = 1;
         } else {
             count += 3;
-        }
-    }
-
-    public void attack(Mage mage) {
-        double rate = Math.random() * 100 + 1;
-        critRate = (int) rate;
-        if (critRate >= 50) {
-            mage.getDmg(15 * count);
-            count = 1;
-        } else {
-            count += 3;
-        }
-    }
-
-    public void attack(Robber robber) {
-        double rate = Math.random() * 100 + 1;
-        critRate = (int) rate;
-        if (critRate >= 50) {
-            robber.getDmg(15 * count);
-            count = 1;
-        } else {
-            count += 5;
         }
     }
 }
