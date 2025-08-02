@@ -10,7 +10,6 @@ public abstract class Unit {
     }
 
     public void printInfo() {
-        System.out.println("===============");
         System.out.println("Name : " + name);
         System.out.println("Hp : " + hp);
     }
