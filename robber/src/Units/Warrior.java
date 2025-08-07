@@ -14,24 +14,26 @@ public class Warrior extends Unit {
         System.out.println("Armor : " + armor);
     }
 
-    public void getDmg(int dmg) {
-        if (armor > 0) {
-            hp -= dmg / 2;
-            armor--;
+    @Override
+    public void getDamage(int dmg) {
+        if (hp > 0 ) {
+            if (armor > 0) {
+                hp -= dmg / 2;
+                armor--;
+            } else {
+                hp -= dmg;
+            }
         } else {
-            hp -= dmg;
+            isAlive = false;
         }
     }
 
-    public void attack(Mage mage) {
-        mage.getDmg(10);
+    @Override
+    public void attack(Unit unit) {
+        if (isAlive() == false){
+            return;
+        }
+        unit.getDamage(10);
     }
 
-    public void attack(Warrior warrior) {
-        warrior.getDmg(10);
-    }
-
-    public void attack(Robber robber) {
-        robber.getDmg(10);
-    }
 }
