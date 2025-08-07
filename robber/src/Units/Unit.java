@@ -1,12 +1,22 @@
 package Units;
 
 public abstract class Unit {
-    protected String name;
+    public String name;
     protected int hp;
+    protected boolean isAlive;
 
     public Unit(String name, int hp) {
         this.name = name;
         this.hp = hp;
+        this.isAlive = true;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 
     public void printInfo() {

@@ -15,14 +15,17 @@ public class Robber extends Unit {
 
     @Override
     public void getDamage(int dmg) {
-        hp -= dmg;
+        if (hp > 0 ) {
+            hp -= dmg;
+        } else {
+            isAlive = false;
+        }
     }
 
     @Override
     public void attack(Unit unit) {
-        double rate = Math.random() * 100 + 1;
-        critRate = (int) rate;
-        if (critRate >= 50) {
+        if (!isAlive()) return; // Мёртвые не атакуют
+        if (Math.random() * 100 >= 50) {
             unit.getDamage(15 * count);
             count = 1;
         } else {

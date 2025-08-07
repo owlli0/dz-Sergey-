@@ -16,11 +16,18 @@ public class Mage extends Unit {
 
     @Override
     public void getDamage(int dmg) {
-        hp -= dmg;
+        if (hp > 0 ) {
+            hp -= dmg;
+        } else {
+            isAlive = false;
+        }
     }
 
     @Override
     public void attack(Unit unit) {
+        if (isAlive() == false) {
+            return;
+        }
         if (mp > 0) {
             unit.getDamage(20);
             mp -= 5;

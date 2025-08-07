@@ -16,17 +16,24 @@ public class Warrior extends Unit {
 
     @Override
     public void getDamage(int dmg) {
-        if (armor > 0) {
-            hp -= dmg / 2;
-            armor--;
+        if (hp > 0 ) {
+            if (armor > 0) {
+                hp -= dmg / 2;
+                armor--;
+            } else {
+                hp -= dmg;
+            }
         } else {
-            hp -= dmg;
+            isAlive = false;
         }
     }
 
     @Override
     public void attack(Unit unit) {
-        unit.getDamage((10));
+        if (isAlive() == false){
+            return;
+        }
+        unit.getDamage(10);
     }
 
 }
