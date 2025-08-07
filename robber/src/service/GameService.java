@@ -97,7 +97,7 @@ public class GameService {
         System.out.println("ПОБЕДИТЕЛЬ: КОМАНДА " + winningTeam);
         printFinalStats(team1, team2);
     }
-    
+
     private void printTeamStatus(int teamNum, Unit[] team) {
         System.out.println("Команда " + teamNum + ":");
         for (int i = 0; i < team.length; i++) {
