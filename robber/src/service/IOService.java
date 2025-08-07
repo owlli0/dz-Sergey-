@@ -11,13 +11,6 @@ public class IOService {
         this.in = new Scanner(System.in);
     }
 
-    public void printUnitState(int teamNumber, Unit unit) {
-        System.out.println("Юнит команды № " + teamNumber);
-//        System.out.println("Информация о классе " + unit.getClass().getName());
-        unit.printInfo();
-        System.out.println("=========================================");
-    }
-
     public int[] getRange() {
 
         int[] fromTill = new int[2];
@@ -56,34 +49,32 @@ public class IOService {
         return in.nextInt();
     }
 
-    public void printBattleResult(Unit[] team1, Unit[] team2, int winningTeam) {
-        System.out.println("\n===== РЕЗУЛЬТАТЫ БОЯ =====");
-
-        // Вывод команды 1
-        System.out.println("\nКоманда 1:");
-        for (int i = 0; i < team1.length; i++) {
-            Unit unit = team1[i];
-            String status = unit.isAlive() ? "Жив (HP: " + unit.getHp() + ")" : "Мёртв";
-            System.out.println("- " + unit.name + ": " + status);
+    public void printTeamStatus(int teamNum, Unit[] team) {
+        System.out.println("Команда " + teamNum + ":");
+        for (int i = 0; i < team.length; i++) {
+            String status = team[i].isAlive() ? "Жив (HP: " + team[i].getHp() + ")" : "Мёртв";
+            System.out.println((i+1) + ". " + team[i].name + " - " + status);
         }
-
-        // Вывод команды 2
-        System.out.println("\nКоманда 2:");
-        for (int i = 0; i < team2.length; i++) {
-            Unit unit = team2[i];
-            String status = unit.isAlive() ? "Жив (HP: " + unit.getHp() + ")" : "Мёртв";
-            System.out.println("- " + unit.name + ": " + status);
-        }
-
-        // Победитель
-        System.out.println("\n==========================");
-        System.out.println("ПОБЕДИТЕЛЬ: КОМАНДА " + winningTeam);
-        System.out.println("==========================");
     }
 
-    public void win(int teamNumber) {
-        System.out.println("**************************");
-        System.out.println("Победила команда № " + teamNumber);
-        System.out.println("**************************");
+    public Unit getFirstAlive(Unit[] team) {
+        for (Unit unit : team) {
+            if (unit.isAlive()) return unit;
+        }
+        return null;
+    }
+
+    public int countAlive(Unit[] team) {
+        int count = 0;
+        for (Unit unit : team) {
+            if (unit.isAlive()) count++;
+        }
+        return count;
+    }
+
+    public void printFinalStats(Unit[] team1, Unit[] team2) {
+        System.out.println("\nИтоговая статистика:");
+        System.out.println("Команда 1 - живых: " + countAlive(team1) + "/" + team1.length);
+        System.out.println("Команда 2 - живых: " + countAlive(team2) + "/" + team2.length);
     }
 }

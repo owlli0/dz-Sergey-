@@ -68,11 +68,11 @@ public class GameService {
 
         while (team1Alive > 0 && team2Alive > 0) {
             System.out.println("\n--- Раунд " + round + " ---");
-            printTeamStatus(1, team1);
-            printTeamStatus(2, team2);
+            ioService.printTeamStatus(1, team1);
+            ioService.printTeamStatus(2, team2);
 
-            Unit unit1 = getFirstAlive(team1);
-            Unit unit2 = getFirstAlive(team2);
+            Unit unit1 = ioService.getFirstAlive(team1);
+            Unit unit2 = ioService.getFirstAlive(team2);
 
             System.out.println("\nБой: " + unit1.name + " vs " + unit2.name);
 
@@ -86,8 +86,8 @@ public class GameService {
                 System.out.println(unit2.name + " повержен!");
             }
 
-            team1Alive = countAlive(team1);
-            team2Alive = countAlive(team2);
+            team1Alive = ioService.countAlive(team1);
+            team2Alive = ioService.countAlive(team2);
 
             round++;
         }
@@ -95,35 +95,6 @@ public class GameService {
         int winningTeam = (team1Alive > 0) ? 1 : 2;
         System.out.println("\n=== БОЙ ЗАВЕРШЕН ===");
         System.out.println("ПОБЕДИТЕЛЬ: КОМАНДА " + winningTeam);
-        printFinalStats(team1, team2);
-    }
-
-    private void printTeamStatus(int teamNum, Unit[] team) {
-        System.out.println("Команда " + teamNum + ":");
-        for (int i = 0; i < team.length; i++) {
-            String status = team[i].isAlive() ? "Жив (HP: " + team[i].getHp() + ")" : "Мёртв";
-            System.out.println((i+1) + ". " + team[i].name + " - " + status);
-        }
-    }
-
-    private Unit getFirstAlive(Unit[] team) {
-        for (Unit unit : team) {
-            if (unit.isAlive()) return unit;
-        }
-        return null;
-    }
-
-    private int countAlive(Unit[] team) {
-        int count = 0;
-        for (Unit unit : team) {
-            if (unit.isAlive()) count++;
-        }
-        return count;
-    }
-
-    private void printFinalStats(Unit[] team1, Unit[] team2) {
-        System.out.println("\nИтоговая статистика:");
-        System.out.println("Команда 1 - живых: " + countAlive(team1) + "/" + team1.length);
-        System.out.println("Команда 2 - живых: " + countAlive(team2) + "/" + team2.length);
+        ioService.printFinalStats(team1, team2);
     }
 }
