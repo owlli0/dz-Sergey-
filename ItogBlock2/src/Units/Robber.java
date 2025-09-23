@@ -25,7 +25,7 @@ public class Robber extends Unit {
     @Override
     public void attack(Unit unit) {
         if (!isAlive()) return; // Мёртвые не атакуют
-        if (Math.random() * 100 >= 50) {
+        if (Math.random() * 100 >= 50) { //(
             unit.getDamage(15 * count);
             count = 1;
         } else {

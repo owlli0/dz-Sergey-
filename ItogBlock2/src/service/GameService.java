@@ -33,7 +33,7 @@ public class GameService {
 
     private Unit randomUnit(int number) {
         double random = Math.random();
-        if (random >= 0 && random < 0.33) {
+        if (random < 0.33) {
             ioService.printMessHpRange("воина");
             int[] rangeHP = ioService.getRange();
             ioService.printMessExtraRange("воина");
@@ -41,7 +41,7 @@ public class GameService {
 
             return new Warrior("Воин " + (number + 1), randomDigit(rangeHP[0], rangeHP[1]), randomDigit(rangeExtra[0], rangeExtra[1]));
 
-        } else if (random >= 0.33 && random < 0.66) {
+        } else if (random < 0.66) {
             ioService.printMessHpRange("мага");
             int[] rangeHP = ioService.getRange();
             ioService.printMessExtraRange("мага");

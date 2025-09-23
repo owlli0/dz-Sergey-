@@ -25,8 +25,8 @@ public class Mage extends Unit {
 
     @Override
     public void attack(Unit unit) {
-        if (isAlive() == false) {
-            return;
+        if (!isAlive() ) {
+            return; // пусть горит в огне
         }
         if (mp > 0) {
             unit.getDamage(20);

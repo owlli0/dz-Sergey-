@@ -15,9 +15,6 @@ public abstract class Unit {
         return isAlive;
     }
 
-    public void setAlive(boolean alive) {
-        isAlive = alive;
-    }
 
     public void printInfo() {
         System.out.println("Name : " + name);
